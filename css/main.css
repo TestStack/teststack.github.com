@@ -140,8 +140,9 @@ nav a:hover {
     border-bottom: 1px solid #121212;
 }
 
-
-
+.header-container header {
+    border-bottom: 4px solid #121212;
+}
 
 
 /* ==========================================================================
