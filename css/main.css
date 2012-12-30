@@ -129,11 +129,12 @@ nav a:hover {
    ========================================================================== */
 
 /* ===================
-    Header and footer
+    Shadows and borders
    =================== */
 
 .header-container header,
-.main-container {
+.main-container,
+.framework-title {
     -webkit-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
     -moz-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
     box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
@@ -144,6 +145,29 @@ nav a:hover {
     border-bottom: 4px solid #121212;
 }
 
+/* ==================
+    Index page
+   ================== */
+.framework {
+    float: left;
+    margin: 30px;
+    padding:20px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    -moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    background: #202020;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.framework-title {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.framework-desc {
+    padding-top: 20px;
+}
 
 /* ==========================================================================
    Media Queries
@@ -205,14 +229,13 @@ nav a:hover {
 
     .main article {
         float: left;
-        width: 95%;
+        width: 50%;
     }
-/*
-    .main aside {
-        float: right;
-        width: 28%;
+
+    .main article.framework {
+        width: 30%;
     }
-*/}
+}
 
 @media only screen and (min-width: 1140px) {
 
