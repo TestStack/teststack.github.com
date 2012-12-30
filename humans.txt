@@ -1,0 +1,21 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Mehdi Khalili -- Programmer -- @MehdiKhalili
+    Michael Wheal -- Programmer -- @mjmwhelan
+    Krzysztof Koźmic -- Programmer -- @kkozmic
+    Jake Ginnivan -- Programmer -- @JakeGinnivan
+    Robert Daniel Moore -- Programmer -- @robdmoore
+
+# THANKS
+
+    Vivek Singh for White
+    All the awesome contributor and users of these frameworks
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr
+    Jekyll

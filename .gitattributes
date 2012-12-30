@@ -1,0 +1,13 @@
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=crlf
+
+# Explicitly declare text files we want to always be normalized and converted 
+# to native line endings on checkout.
+*.yml text
+*.txt text
+*.html text
+*.markdown text
+*.md text
+*.textile text
+*.js text
+*.css text
