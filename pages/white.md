@@ -1,6 +1,7 @@
 ---
 layout: page
 title: TestStack.White
+github-repo: https://github.com/TestStack/White
 permalink: white.html
 description: Automated Rich Client Testing Done Right
 ---
