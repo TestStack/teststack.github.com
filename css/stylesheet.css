@@ -148,7 +148,7 @@ img {
   margin: 0 auto;
   max-width: 739px;
   padding: 5px;
-  margin: 10px 0 10px 0;
+  margin: 5px 0 5px 0;
   border: 1px solid #ebebeb;
 
   box-shadow: 0 0 5px #ebebeb;
@@ -160,30 +160,30 @@ img {
 
 pre, code {
   width: 100%;
-  color: #222;
-  background-color: #fff;
+  color: White;
 
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  font-size: 14px;
+  font-size: 12px;
 
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-
-
-
 }
 
 pre {
-  width: 100%;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
   overflow: auto;
+  padding: 5px;
+  margin: 10px 0 10px 0;
+  border: 1px solid #ebebeb;
+
+  box-shadow: 0 0 2px #ebebeb;
+  -webkit-box-shadow: 0 0 2px #ebebeb;
+  -moz-box-shadow: 0 0 2px #ebebeb;
+  -o-box-shadow: 0 0 2px #ebebeb;
+  -ms-box-shadow: 0 0 2px #ebebeb;
 }
 
 code {
-  padding: 3px;
-  margin: 0 3px;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 
@@ -193,7 +193,7 @@ pre code {
 }
 
 blockquote {
-  color: #666;
+  color: #bbb;
   margin-bottom: 20px;
   padding: 0 0 0 20px;
   border-left: 3px solid #bbb;
@@ -258,7 +258,6 @@ form {
 }
 
 img {
-  width: 100%;
   max-width: 100%;
 }
 
