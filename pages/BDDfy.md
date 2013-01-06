@@ -64,8 +64,6 @@ This installs BDDfy on your project. As part of installation, BDDfy copies a fil
 
 I will start with the last scenario for this sample because it is simpler than other scenarios and we can focus more on BDDfy than on the scenario's implementation:
 
-`
-
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TestStack.BDDfy;
@@ -98,9 +96,7 @@ I will start with the last scenario for this sample because it is simpler than o
                 this.BDDfy();
             }
         }
-    }    
-
-`
+    }
 
 This class represents our scenario and has one test method called Execute (it can be called anything). Inside this method, I have one line of code that calls BDDfy extension method on the instance. Let's run this test to see what happens. I am using ReSharper test runner to run the test:
 
@@ -125,8 +121,8 @@ Note: As indicated in HTML and console reports, 'Given' step was unsuccessful du
 BDDfy uses reflection to scan your classes for steps. In this mode, known as reflective mode, it has two ways of finding a step: using attributes and method name conventions. The following is the list of method name conventions:
 
  - Method name ending with `Context` is considered a setup method but doesn't get shown in the reports 
- - Method name equaling `Setup` is a setup method but doesn't get showin in the reports
- - Method name starting with `Given` is a setup step that gets reported in the reports
+ - Method name equaling `Setup` is a setup method but doesn't get shown in in the reports
+ - Method name starting with `Given` is a setup step that gets shown in the reports
  - Method name starting with `AndGiven` and 'And_given_' are considered setup steps running after 'Given' steps which is reported.
  - Method name starting with `When` is considered a state transition step and is reported
  - Method name starting with `AndWhen` and `And_when_` are considered state transition steps running after 'When' steps and is reported
@@ -137,8 +133,6 @@ BDDfy uses reflection to scan your classes for steps. In this mode, known as ref
 If you don't like Given When Then dialect you can write your own dialect and register it in a few lines of code. 
 
 BDDfy uses method names to generate the step titles and uses the scenario class name to generate the scenario title. Ok, let's implement the steps:
-
-`
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TestStack.BDDfy;
@@ -180,11 +174,7 @@ BDDfy uses method names to generate the step titles and uses the scenario class 
         }
     }
 
-`
-
 For the purpose of this article, I am going to provide you with the fully implemented domain class here. This is, of course, not the way you would do it in a real test first methodology:
-
-`
 
     namespace BDDfy.Samples.Atm
     {
@@ -248,8 +238,6 @@ For the purpose of this article, I am going to provide you with the fully implem
         }
     }
 
-`
-
 Let's run the test again:
 
 ![Failed step console report](/images/pages/BDDfy/failed-step-console.png)
@@ -274,8 +262,6 @@ Both console and HTML reports show that my scenario has failed. It seems like I 
 
 ###ExecutableAttribute in reflective API
 Let's implement another scenario. This time, I will not bore you with the red and green phases:
-
-`
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TestStack.BDDfy;
@@ -339,7 +325,6 @@ Let's implement another scenario. This time, I will not bore you with the red an
             }
         }
     }
-`
 
 This scenario is a bit more involved. Let's run the test and see the reports:
 
@@ -358,8 +343,6 @@ To make it easier to use, `ExecutableAttribute` has a few subtypes that you can 
 While we are talking about attributes, there is also an attribute called `IgnoreStepAttribute` that you can apply on a method you want BDDfy to ignore as a step. This is useful when you have a method whose name complies with naming conventions BDDfy uses; but is not really a step.
 
 As you may have noticed, we have not still implemented any story. BDDfy is capable of executing standalone scenarios and generating report from them which I think is quite useful for teams that do not do Agile/BDD but are interested in a better testing experience and reporting. In this example, we have a story though. So let's code it:
-
-`
 
     using TestStack.BDDfy.Core;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -386,7 +369,6 @@ As you may have noticed, we have not still implemented any story. BDDfy is capab
             }
         }
     }
-`
 
 Any class decorated with a `StoryAttribute` represents a story. Using `StoryAttribute`, you can also specify the story narrative. To associate the story with its scenarios, you should implement a test method per scenario. 
 
@@ -410,8 +392,6 @@ If you compare the above reports with the ones generated when we had `Execute` m
 
 ###Fluent API
 Let's do our last scenario. For this one, I am going to use the Fluent API BDDfy provides:
-
-`
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -459,11 +439,7 @@ Let's do our last scenario. For this one, I am going to use the Fluent API BDDfy
         }
     }
 
-`
-
 This looks very much like the other scenarios with one difference: the naming conventions are not quite right and you think that BDDfy would fail to match some of these methods - specifically those starting with `And` instead of `AndGiven`. If you were to use reflecting scanners, those methods would have been picked up as asserting steps which meant they would run and report in incorrect order! You could very easily customise BDDfy's naming conventions or rename your methods or use `ExecutableAttribute` to make these methods scannable by reflecting scanners; but I wrote the class like this to show how you can use a fluent API to let BDDfy find your methods/steps:
-
-`
 
     [TestMethod]
     public void AccountHasSufficientfund()
@@ -481,8 +457,6 @@ This looks very much like the other scenarios with one difference: the naming co
             .BDDfy();
     } 
 
-`
-
 You may write this method in your scenario class if you want to run it as a standalone scenario. I added it to my `AccountHolderWithdrawsCash` story to make it part of my story.
 
 By default, BDDfy uses two scanners namely `MethodNameStepScanner` and `ExecutableAttributeStepScanner` - which I collectively refer to as reflective scanners . The former scans your scenario class for steps using method name conventions and the latter looks for `ExecutableAttribute` on your methods. There is also a third scanner called `FluentStepScanner` which we used in the above example. You don't have to tell BDDfy which scanner to use: it picks the right scanner according to your code.
@@ -492,8 +466,6 @@ Note: Reflective scanners run in a pipeline which means you can mix and match th
 For reporter modules, it does not make any difference what scanner you use; so the HTML and console reports are going to look the same regardless of the scanners.
 
 Using fluent API you can implement your stories/scenarios in an alternative and rather interesting way. Instead of having one class per scenario and a class for your story, you could write one class that represents all your scenarios as well as your story:
-
-`
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TestStack.BDDfy;
@@ -620,16 +592,12 @@ Using fluent API you can implement your stories/scenarios in an alternative and 
         }
     }
 
-`
+This way, you will not need a separate story class or one class per scenario - everything is mixed into one class. Running tests in this class generates the very same console and HTML reports.
 
-This way, you will not need a separate story class or one class per scenario - everything is mixed into one class called. Running tests in this class generates the very same console and HTML reports.
-
-This style of writing stories and scenarios helps you be a bit DRYer; but one could aruge it violates SRP. It is important to note that you could achieve DRYness without using fluent API. In order to do that, you would need to use inheritance or composition to compose your scenario class from classes that would hold the common behaviors. For example, if you put your 'Given' and 'When' steps inside a base class and your 'Then' steps inside a subclass, BDDfy will scan all these steps into your scenario. That would not give you as much freedom as the fluent API though.
+This style of writing stories and scenarios helps you be a bit DRYer; but one could argue it violates [SRP](http://en.wikipedia.org/wiki/Single_responsibility_principle). It is important to note that you could achieve [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself)ness without using fluent API. In order to do that, you would need to use inheritance or composition to compose your scenario class from classes that would hold the common behaviors. For example, if you put your 'Given' and 'When' steps inside a base class and your 'Then' steps inside a subclass, BDDfy will scan all these steps into your scenario. That would not give you as much freedom as the fluent API though.
 
 ###Titles
 By default, BDDfy uses the name of the story class for the story title as we saw in the first few samples. You can override this behavior by passing the title into the Story attribute as I have done in the above example. I named my class `AccountHolderWithdrawsCashFluentScanner` to differentiate it from the story class in the other implementation; but I do not want the story title to end with 'fluent scanner'. So I provided the story with a title I will be happy to see in the reports:
-
-`
 
     [Story(
         Title = "Account holder withdraws cash",
@@ -638,11 +606,7 @@ By default, BDDfy uses the name of the story class for the story title as we saw
         SoThat = "So that I can get money when the bank is closed")]
     public class AccountHolderWithdrawsCashFluentScanner
 
-`
-
 For scenario titles, BDDfy uses the class name; for example in the first scenario, BDDfy extracted the scenario text 'Card has been disabled' from the class name 'CardHasBeenDisabled'. In the above example, because all your scenarios are fetched from the same class, one would expect BDDfy to give them all the same title! That is not the case though. In this case, BDDfy detects that you are using fluent API and uses the test method's name to generate the scenario title. For example, the `CardHasBeenDisabled` method results into 'Card has been disabled'. That said, if you want to have full control over scenario title, you may pass the title to BDDfy method; e.g.
-
-`
 
     [TestMethod]
     public void CardHasBeenDisabled()
@@ -653,8 +617,6 @@ For scenario titles, BDDfy uses the class name; for example in the first scenari
                 .And(s => s.AndTheAtmShouldSayTheCardHasBeenRetained())
             .BDDfy("Card has been disabled and account holder requests $20");
     }
-
-`
 
 BDDfy uses step method names for the method title and it is also capable of injecting the input arguments in the title. In the above example, `Given(s => s.GivenTheCardIsDisabled())` results into 'Given the card is disabled' and `When(s => s.WhenTheAccountHolderRequests(20))` results in 'When the account holder requests 20'; but sometimes that is not good enough (e.g., the account holder does not request 20 - s/he requests 20 dollars). In cases like this, if you are using the fluent API, you can pass in the desired title into the step indicator methods; e.g.
 
@@ -788,11 +750,11 @@ Reflective and fluent APIs offer similar functionalities (but some through diffe
 </tbody>
 </table>
 
-You may think that these two APIs are significantly different and that a huge amount of effort has been put to implement both models; but the ONLY difference between these two models is in their step scanners which are not even part of the core. BDDfy is very extensible and the core barely has any logic in it. It instead delegates all its responsibilities to its extensions, one of which is step scanner implementing `IStepScanner`. The same applies to scenario scanner implemening `IScenarioScanner`, and story scanner implementing `IScanner`, report generators, test runner and exception handler ETC. All these interfaces contain only one method which makes it rather straightforward to implement a new extension. Step scanners are a very small part of this framework, and if you think you could benefit from a different scanner you could very simply implement it.
+You may think that these two APIs are significantly different and that a huge amount of effort has been put to implement both models; but the ONLY difference between these two models is in their step scanners which are not even part of the core. BDDfy is very extensible and the core barely has any logic in it. It instead delegates all its responsibilities to its extensions, one of which is step scanner implementing `IStepScanner`. The same applies to scenario scanner implemening `IScenarioScanner`, and story scanner implementing `IScanner`, report generators, test runner and exception handler etc. All these interfaces contain only one method which makes it rather straightforward to implement a new extension. Step scanners are a very small part of this framework, and if you think you could benefit from a different scanner you could very simply implement it.
 
 The sample we worked through in this article is one of the BDDfy samples. There are a few more samples that are implemented in different ways and use some other BDDfy features I did not explain here and I think are definitely worth looking. Samples are available on TestStack.BDDfy.Samples NuGet package. The samples are all implemented using NUnit; but as shown in this article you can use MSTest or any other testing framework.
 
-If you find any bug or would like to raise some issues, you may use the issues page on the project homepage [here](https://github.com/TestStack/TestStack.BDDfy). Also, you may follow BDDfy [on twitter](http://twitter.com/BDDfy) to stay up to date with latest changes and features.
+If you find any bug or would like to raise some issues, you may use the issues page on the [project homepage](https://github.com/TestStack/TestStack.BDDfy). Also, you may follow BDDfy [on twitter](http://twitter.com/BDDfy) to stay up to date with latest changes and features.
 
 
 
