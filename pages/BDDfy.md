@@ -100,7 +100,7 @@ I will start with the last scenario for this sample because it is simpler than o
 
 This class represents our scenario and has one test method called Execute (it can be called anything). Inside this method, I have one line of code that calls BDDfy extension method on the instance. Let's run this test to see what happens. I am using ReSharper test runner to run the test:
 
-![Not Implemented Method](/images/pages/BDDfy/not-implemented-method.PNG)
+![Not Implemented Method](/images/pages/BDDfy/not-implemented-method.png)
 
 *<small>Figure 1: CardHasBeenDisabled console report before the scenario is implemented</small>*
 
@@ -108,7 +108,7 @@ That is the console report BDDfy generates. Note that BDDfy tells you that the '
 
 By default, BDDfy also generates an HTML report called 'BDDfy.Html' in your project's output folder:
 
-![Not Implemented Method](/images/pages/BDDfy/not-implemented-method-html.PNG)
+![Not Implemented Method](/images/pages/BDDfy/not-implemented-method-html.png)
 
 *<small>Figure 2: CardHasBeenDisabled Html report before the scenario is implemented</small>*
 
