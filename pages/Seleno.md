@@ -1,10 +1,9 @@
 ---
-layout: post
-title: New Post
-permalink: new-page.html
-description: Some Description
-date: 2013-01-20 15:09:14 +00:00
-tags: "some tags here"
+layout: page
+title: TestStack.Seleno
+github-repo: https://github.com/TestStack/TestStack.Seleno
+permalink: Seleno.html
+description: Automated Web Testing Done Right
 ---
 
 ### What is Seleno?
