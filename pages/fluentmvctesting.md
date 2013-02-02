@@ -231,6 +231,10 @@ Once you have made assertions about the model you can then make assertions that 
     _controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView()
         .WithModel<ModelType>().AndModelErrorFor(m => m.Property1);
 
+    // Check that there isn't a model error against a given property in the model
+    _controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView()
+        .WithModel<ModelType>().AndNoModelErrorFor(m => m.Property1);
+
     // Check that there is a model error against a specific key
     // Avoid if possible given it includes a magic string
     _controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView()
