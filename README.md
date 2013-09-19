@@ -1,4 +1,4 @@
-[TestStack](http://teststack.github.com/) is a collection of open source projects which mainly focus on making the left side of Marrick’s agile testing quadrant easier!
+[TestStack](http://teststack.github.com/) is a collection of open source projects which mainly focus on making the left side of Marick’s agile testing quadrant easier!
 
 #What are the Agile Testing Quadrants?
 The agile testing quadrants show the different categories of tests that accomplish different purposes and reflects the different reasons that we test. The concept was introduced by Brian Marrick and is discussed in depth in the book [Agile Testing](http://www.amazon.com/Agile-Testing-Practical-Addison-Wesley-Signature/dp/0321534468/ref=pd_ts_b_2?ie=UTF8&s=books), by Lisa Crispin and Janet Gregory. The tests on the left side support the agile team. The tests on the right, the ones that “critique the product,” are what you might consider the traditional testing that testers have done after a feature is developed.
