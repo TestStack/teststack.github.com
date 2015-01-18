@@ -14,7 +14,9 @@ a:hover {
     text-decoration: none;
     color: #1e527f;
 }
-
+.fa-github {
+    margin-left: 5px;
+}
 .offset-header {
     padding-top: 90px;
 }
