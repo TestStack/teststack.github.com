@@ -79,6 +79,11 @@ a:hover {
     -ms-transition: none;
     -o-transition: none;
 }
+
+.header .main-nav .nav .nav-item a:hover {
+    background-color: #f5f5f5;
+}
+
 .header .main-nav .nav .nav-item.active {
     color: #286da8;
 }
