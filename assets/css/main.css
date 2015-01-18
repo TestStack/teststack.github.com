@@ -1,4 +1,10 @@
 /* ======= Base ======= */
+.browsehappy {
+    background-color:tomato;
+    padding: 20px;
+    font-size: 20px;
+}
+
 body {
     font-family: 'Lato', arial, sans-serif;
     color: #444444;
