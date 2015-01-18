@@ -62,9 +62,6 @@ a:hover {
 .header .main-nav button:focus {
     outline: none;
 }
-.header .main-nav button .icon-bar {
-    background-color: #fff;
-}
 .header .main-nav .nav .nav-item {
     font-weight: normal;
     text-transform: uppercase;
