@@ -68,8 +68,7 @@ a:hover {
     margin-right: 10px;
 }
 .header .main-nav .nav .nav-item.active a {
-    color: #286da8;
-    background: none;
+    background-color: #eee;
 }
 .header .main-nav .nav .nav-item a {
     color: #444444;
@@ -77,18 +76,6 @@ a:hover {
     -moz-transition: none;
     -ms-transition: none;
     -o-transition: none;
-}
-.header .main-nav .nav .nav-item a:hover {
-    color: #286da8;
-    background: none;
-}
-.header .main-nav .nav .nav-item a:focus {
-    outline: none;
-    background: none;
-}
-.header .main-nav .nav .nav-item a:active {
-    outline: none;
-    background: none;
 }
 .header .main-nav .nav .nav-item.active {
     color: #286da8;
