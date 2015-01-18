@@ -18,7 +18,7 @@ a:hover {
     margin-left: 5px;
 }
 .offset-header {
-    padding-top: 90px;
+    padding-top: 80px;
 }
 .has-pattern {
     background-image: url('../images/pattern-1.png');
@@ -89,32 +89,37 @@ a:hover {
 /* ======= Promo Section ======= */
 .promo {
     background-color: #286da8;
-    color: #fff;
+    color: white;
 }
+
 .promo .container {
-    padding-bottom: 15px;
+    padding: 67px 30px;
 }
-.promo .overview {
-    margin-top: 60px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-.promo .overview h2 {
-    font-size: 30px;
+
+.promo .container h2 {
     margin-bottom: 35px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
-.promo .overview .summary {
-    margin-bottom: 60px;
+
+.promo .summary {
     margin-left: 70px;
 }
-.promo .overview .summary li {
-    margin-bottom: 15px;
-    list-style: none;
+
+@media (max-width: 600px) {
+    .promo .summary {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 0;
+    }
+}
+
+.summary li {
     font-size: 20px;
+    list-style: none;
     font-weight: 300;
-    padding-left: 30px;
+    margin-bottom: 15px;
     background: url('../images/bullet.png') no-repeat left center;
+    padding-left: 30px;
 }
 
 /* ======= Features Section ======= */
